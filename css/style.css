@@ -1,0 +1,85 @@
+:root {
+  /* Colores de fondos  */
+  --bg-color-dark: #000000;
+  --bg-color-gray: gray;
+  --bg-color-blue: blue;
+
+  /* Colores de fonts */
+  --font-color-white: #ffff;
+
+  /* Paddings y márgenes */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 2rem;     /* 32px */
+  --space-lg: 4rem;     /* 64px */
+  --space-xl: 8rem;     /* 128px */
+
+}
+
+*, ::after, ::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.header {
+  background-color: var(--bg-color-dark);
+  color: var(--font-color-white);
+  padding: 0 var(--space-sm);
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+
+  --icon-toggle-menu: url("../images/icons/open-menu.svg");
+  --transform-menu-show: translate(-100%);
+}
+
+.nav__list {
+  transform: var(--transform-menu-show);
+  list-style: none;
+  position: fixed;
+  display: grid;
+  inset: 0;
+  padding: var(--space-md) 5%;
+  background-color: var(--bg-color-dark);
+  place-content: center;
+  gap: var(--space-md);
+  text-align: center;
+  transition: .5s;
+}
+
+.nav__container:has(.nav__input:checked) {
+  background-color: var(--bg-color-gray);
+  --icon-toggle-menu: url("../images/icons/close-menu.svg");
+  --transform-menu-show: translate(0);
+}
+
+.nav__figure, .nav__toggle {
+  z-index: 10;
+}
+
+.nav__input {
+  display: none;
+}
+
+.nav__toggle {
+  width: 30px;
+  height: 30px;
+  background-image: var(--icon-toggle-menu);
+  background-size: cover;
+  cursor: pointer;
+
+  transition: background-image .5s;
+}
+
+.nav__link {
+  color: var(--font-color-white);
+  text-decoration: none;
+}
