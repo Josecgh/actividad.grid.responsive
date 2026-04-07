@@ -1,4 +1,7 @@
 :root {
+  /* Colores de shadows */
+  --white-shadow: #ffff;
+  --black-shadow: rgba(0,0,0,3);
   /* Colores de fondos  */
   --bg-color-dark: #000000;
   --bg-color-gray: gray;
@@ -103,7 +106,7 @@ body {
 }
 
 .img__product:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,3);
+  box-shadow: 0 10px 20px var(--black-shadow);
 }
 
 .footer {
@@ -127,6 +130,10 @@ body {
 
 .img__social {
   height: 50px;
+}
+
+.img__social:hover {
+  box-shadow: 0 10px 20px var(--white-shadow);
 }
 
 @media (min-width: 760px) and (max-width: 1199px) {
@@ -156,4 +163,21 @@ body {
     height: 200px;
   }
 }
+@media (min-width: 760px) {
+  .nav__toggle {
+    display: none;
+  }
+  
+  .nav__list {
+    position: static;
+    transform: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    gap: var(--space-md);
+  }
 
+  .nav__container {
+    justify-content: space-between;
+  }
+}
